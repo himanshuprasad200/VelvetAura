@@ -1,0 +1,239 @@
+/* Global styles */
+.navbar {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  z-index: 2; /* Increase z-index */
+}
+
+/* Add styles for fixed navbar */
+.navbar.fixed {
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.1),
+    rgba(255, 255, 255, 0)
+  );
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 98%;
+  z-index: 1000; /* Ensure navbar stays on top */
+}
+
+.navbar.fixed .menu {
+  display: flex;
+  justify-content: center;
+}
+
+.navbar.fixed .menu li {
+  margin: 0 10px;
+}
+
+/* .navbar.fixed .icons {
+  display: block; 
+} */
+
+.logo img {
+  width: 50px;
+  height: 50px;
+}
+
+.menu {
+  list-style-type: none;
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+.menu li {
+  margin-right: 1rem;
+}
+
+.menu li a {
+  color: tomato;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.menu li a:hover {
+  color: #ffcc00;
+}
+
+.icons {
+  right: 80px;
+  position: relative;
+  display: flex; /* Change display property to flex */
+  align-items: center; /* Align items vertically */
+}
+
+.icons a:not(:last-child) {
+  margin-right: 1rem;
+}
+
+.icons svg {
+  font-size: 1.5rem;
+  margin-right: 0.5rem;
+}
+
+.icons a {
+  color: tomato;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+
+.icons a:hover {
+  color: #ffee00;
+}
+
+/* Add these styles for hamburger icon */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 25px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 3; /* Ensure hamburger icon is above everything */
+}
+
+.hamburger .line {
+  width: 100%;
+  height: 2px;
+  background-color: #000;
+  transition: all 0.3s ease;
+}
+
+.active .line:nth-child(1) {
+  transform: translateY(7px) rotate(45deg);
+}
+
+.active .line:nth-child(2) {
+  opacity: 0;
+}
+
+.active .line:nth-child(3) {
+  transform: translateY(-7px) rotate(-45deg);
+}
+
+.menu li {
+  margin-bottom: 10px;
+}
+
+/* Show menu when active class is present */
+
+.menu.active li {
+  margin-bottom: 1rem;
+}
+
+.menu.active li:last-child {
+  margin-bottom: 0;
+}
+
+.speedDial {
+  position: fixed;
+  right: 3vmax;
+  top: 1vmax;
+}
+
+.speedDialIcon {
+  width: 56px;
+  height: 56px;
+  border-radius: 100%;
+}
+
+/* Media query for screens below 500px */
+@media screen and (max-width: 500px) {
+  .navbar {
+    position: relative;
+    z-index: 2;
+  }
+
+  .navbar.fixed {
+    width: 93%;
+  }
+
+  .menu.active {
+    background: linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.1),
+      rgba(255, 255, 255, 0)
+    );
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-radius: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    position: absolute;
+    top: 4rem;
+    left: 0;
+    width: 91%;
+    background-color: #333;
+    padding: 1rem;
+    z-index: 1; /* Ensure menu is above navbar */
+  }
+
+  .menu {
+    list-style-type: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+    display: none;
+  }
+
+  .icons svg {
+    right: -81px;
+    position: relative;
+  }
+
+  .navbar.fixed .menu {
+    display: none;
+  }
+
+  .navbar.fixed.menu .active {
+    display: block;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .hamburger {
+    top: -2px;
+    right: -80px;
+    position: relative;
+    display: flex;
+    z-index: 3; /* Ensure hamburger icon is above everything */
+  }
+  .speedDial {
+    position: fixed;
+    right: 24vmax;
+    top: 1.8vmax;
+  }
+}
